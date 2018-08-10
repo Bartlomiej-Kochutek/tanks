@@ -1,0 +1,142 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+
+<beans
+  xmlns = "http://www.springframework.org/schema/beans"
+  xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation = "http://www.springframework.org/schema/beans
+  http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+
+
+
+  <bean id = "mHitPoints1" class = "model.MHitPoints">
+  </bean>
+  <bean id = "cHitPoints1" class = "controller.CHitPoints">
+    <constructor-arg ref = "mHitPoints1"/>
+  </bean>
+
+  <bean id = "mBase1" class = "model.MBase">
+  </bean>
+  <bean id = "vBase1" class = "view.VBase">
+  </bean>
+  <bean id = "cBase1" class = "controller.CBase">
+    <constructor-arg ref = "mBase1"/>
+    <constructor-arg ref = "vBase1"/>
+    </bean>
+
+  <bean id = "mTank1" class = "model.MTank">
+    <property name = "posX" value = "10"/>
+    <property name = "posY" value = "28"/>
+    <property name = "speed" value = "1"/>
+  </bean>
+  <bean id = "vTank1" class = "view.VTank">
+  </bean>
+  <bean id = "cTank1" class = "controller.CTank">
+    <constructor-arg ref = "mTank1"/>
+    <constructor-arg ref = "vTank1"/>
+    <constructor-arg ref = "cHitPoints1"/>
+    <constructor-arg ref = "cBase1"/>
+  </bean>
+
+
+
+  <bean id = "mHitPoints2" class = "model.MHitPoints">
+  </bean>
+  <bean id = "cHitPoints2" class = "controller.CHitPoints">
+    <constructor-arg ref = "mHitPoints2"/>
+  </bean>
+
+  <bean id = "mBase2" class = "model.MBase">
+  </bean>
+  <bean id = "vBase2" class = "view.VBase">
+  </bean>
+  <bean id = "cBase2" class = "controller.CBase">
+    <constructor-arg ref = "mBase2"/>
+    <constructor-arg ref = "vBase2"/>
+    </bean>
+
+  <bean id = "mTank2" class = "model.MTank">
+    <property name = "posX" value = "50"/>
+    <property name = "posY" value = "30"/>
+    <property name = "speed" value = "1"/>
+  </bean>
+  <bean id = "vTank2" class = "view.VTank">
+  </bean>
+  <bean id = "cTank2" class = "controller.CTank">
+    <constructor-arg ref = "mTank2"/>
+    <constructor-arg ref = "vTank2"/>
+    <constructor-arg ref = "cHitPoints2"/>
+    <constructor-arg ref = "cBase2"/>
+  </bean>
+
+
+
+
+
+  <bean id = "mGameBoard" class = "model.MGameBoard">
+  </bean>
+
+  <bean id = "vGameBoard" class = "view.VGameBoard">
+  </bean>
+
+  <bean id = "cGameBoard" class = "controller.CGameBoard">
+    <constructor-arg ref = "mGameBoard"/>
+    <constructor-arg ref = "vGameBoard"/>
+    <constructor-arg value = "80"/>  <!-- size -->
+  </bean>
+
+
+
+
+
+  <bean id = "display" class = "org.eclipse.swt.widgets.Display">
+  </bean>
+
+  <bean id = "mainMenuShell" class = "org.eclipse.swt.widgets.Shell">
+    <constructor-arg ref = "display"/>
+  </bean>
+
+
+
+  <bean id = "mGameWindow" class = "model.MGameWindow">
+  </bean>
+
+  <bean id = "vGameWindow" class = "view.VGameWindow">
+    <constructor-arg ref = "display"/>
+  </bean>
+
+  <bean id = "cGameWindow" class = "controller.CGameWindow">
+    <constructor-arg ref = "mGameWindow"/>
+    <constructor-arg ref = "vGameWindow"/>
+    <constructor-arg ref = "cGameBoard"/>
+    <constructor-arg ref = "display"/>
+    <constructor-arg value = "12"/>  <!-- elementSize -->
+  <property name = "childTanks">
+    <set>
+       <ref bean="cTank1" />
+       <ref bean="cTank2" />
+    </set>
+  </property>
+  </bean>
+
+
+
+
+
+  <bean id = "vMainMenu" class = "view.VMainMenu">
+    <property name = "display" ref = "display"/>
+    <property name = "shell" ref = "mainMenuShell"/>
+  </bean>
+
+  <bean id = "cMainMenu" class = "controller.CMainMenu">
+    <constructor-arg ref = "cGameWindow"/>
+    <constructor-arg ref = "vMainMenu"/>
+  </bean>
+
+
+</beans>
+
+
+
+
