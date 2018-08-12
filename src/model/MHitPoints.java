@@ -28,6 +28,12 @@ public class MHitPoints
   public void takeDamagedFromMissile(int iHitPointsDamage)
   {
     amount -= iHitPointsDamage;
+
+    if (amount > 0)
+      return;
+
+    controller.getParentTank().getParentGameWindow().setAtLeastOneTankDeafeated(true);
+    controller.getParentTank().setDefeated(true);
   }
 
   public double getAmountAsPercentage()

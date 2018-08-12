@@ -75,6 +75,7 @@
 
 
   <bean id = "mGameBoard" class = "model.MGameBoard">
+    <property name = "size" value = "70"/>
   </bean>
 
   <bean id = "vGameBoard" class = "view.VGameBoard">
@@ -83,7 +84,6 @@
   <bean id = "cGameBoard" class = "controller.CGameBoard">
     <constructor-arg ref = "mGameBoard"/>
     <constructor-arg ref = "vGameBoard"/>
-    <constructor-arg value = "80"/>  <!-- size -->
   </bean>
 
 
@@ -100,6 +100,7 @@
 
 
   <bean id = "mGameWindow" class = "model.MGameWindow">
+    <property name = "elementSize" value = "12"/>
   </bean>
 
   <bean id = "vGameWindow" class = "view.VGameWindow">
@@ -111,7 +112,6 @@
     <constructor-arg ref = "vGameWindow"/>
     <constructor-arg ref = "cGameBoard"/>
     <constructor-arg ref = "display"/>
-    <constructor-arg value = "12"/>  <!-- elementSize -->
   <property name = "childTanks">
     <set>
        <ref bean="cTank1" />

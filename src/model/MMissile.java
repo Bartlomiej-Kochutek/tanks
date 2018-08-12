@@ -21,7 +21,7 @@ public class MMissile
 
   private EDirection direction;
 
-  private static final int DEFAULT_DAMAGE = 8;
+  private static final int DEFAULT_DAMAGE = 40;
   private int damage;
 
 

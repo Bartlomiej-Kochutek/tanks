@@ -23,8 +23,6 @@ public class CGameWindow
 
   private Display displayToGetDevice;
 
-  private int elementSize;
-
   private static final int FIRST_TANK_MOVE_DOWN     = 's';
   private static final int FIRST_TANK_MOVE_LEFT     = 'a';
   private static final int FIRST_TANK_MOVE_RIGHT    = 'd';
@@ -43,8 +41,7 @@ public class CGameWindow
       MGameWindow iModel,
       VGameWindow iView,
       CGameBoard iChildBoard,
-      Display iDisplayToGetDevice,
-      int iElementSize)
+      Display iDisplayToGetDevice)
   {
     model = iModel;
     model.setController(this);
@@ -56,7 +53,6 @@ public class CGameWindow
     childBoard.setParentGameWindow(this);
 
     displayToGetDevice = iDisplayToGetDevice;
-    elementSize = iElementSize;
   }
 
 
@@ -250,11 +246,20 @@ public class CGameWindow
 
   public int getElementSize()
   {
-    return elementSize;
+    return model.getElementSize();
   }
   public void setElementSize(int iElementSize)
   {
-    elementSize = iElementSize;
+    model.setElementSize(iElementSize);
+  }
+
+  public boolean isAtLeastOneTankDeafeated()
+  {
+    return model.isAtLeastOneTankDeafeated();
+  }
+  public void setAtLeastOneTankDeafeated(boolean iAtLeastOneTankDeafeated)
+  {
+    model.setAtLeastOneTankDeafeated(iAtLeastOneTankDeafeated);
   }
 }
 

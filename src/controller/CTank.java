@@ -56,6 +56,9 @@ public class CTank
 
   public void redrawWithMissiles()
   {
+    if (model.isDefeated())
+      return;
+
     view.redraw(parentGameWindow.getChildBoard().getElements());
     view.redrawMissiles(parentGameWindow.getChildBoard().getElements());
   }
@@ -211,6 +214,15 @@ public class CTank
   public void setHitPoints(CHitPoints iHitPoints)
   {
     hitPoints = iHitPoints;
+  }
+
+  public boolean isDefeated()
+  {
+    return model.isDefeated();
+  }
+  public void setDefeated(boolean iDefeated)
+  {
+    model.setDefeated(iDefeated);
   }
 }
 

@@ -24,16 +24,13 @@ public class CGameBoard
 
   public CGameBoard(
       MGameBoard iModel,
-      VGameBoard iView,
-      int iSize)
+      VGameBoard iView)
   {
     model = iModel;
     model.setController(this);
 
     view = iView;
     view.setController(this);
-
-    model.setSize(iSize);
   }
 
 

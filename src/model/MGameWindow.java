@@ -12,11 +12,16 @@ public class MGameWindow
 
   private long lastMeasuredMilisecs;
 
+  private boolean atLeastOneTankDeafeated;
+
+  private int elementSize;
+
 
 
   public MGameWindow()
   {
     lastMeasuredMilisecs = System.currentTimeMillis();
+    atLeastOneTankDeafeated = false;
   }
 
 
@@ -40,6 +45,24 @@ public class MGameWindow
   public void setController(CGameWindow iController)
   {
     controller = iController;
+  }
+
+  public int getElementSize()
+  {
+    return elementSize;
+  }
+  public void setElementSize(int iElementSize)
+  {
+    elementSize = iElementSize;
+  }
+
+  public boolean isAtLeastOneTankDeafeated()
+  {
+    return atLeastOneTankDeafeated;
+  }
+  public void setAtLeastOneTankDeafeated(boolean iAtLeastOneTankDeafeated)
+  {
+    atLeastOneTankDeafeated = iAtLeastOneTankDeafeated;
   }
 }
 

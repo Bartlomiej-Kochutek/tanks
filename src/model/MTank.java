@@ -42,6 +42,8 @@ public class MTank
   private boolean shooting;
   private int lastShootDelta;
 
+  private boolean defeated;
+
 
 
   public MTank()
@@ -62,6 +64,8 @@ public class MTank
     shooting = false;
 
     lastShootDelta = 0;
+
+    defeated = false;
   }
 
 
@@ -73,20 +77,20 @@ public class MTank
 
   public void shoot(int iDeltaT)
   {
-    if (shooting)
-    {
-      lastShootDelta += iDeltaT;
-      if (lastShootDelta > SHOOTING_INTERVAL)
-      {
-        lastShootDelta %= SHOOTING_INTERVAL;
+    if (!shooting)
+      return;
 
-        controller.getMissiles().add(new CMissile(
-            controller,
-            canonPositionX(),
-            canonPositionY(),
-            direction));
-      }
-    }
+    lastShootDelta += iDeltaT;
+    if (lastShootDelta < SHOOTING_INTERVAL)
+      return;
+
+    lastShootDelta %= SHOOTING_INTERVAL;
+
+    controller.getMissiles().add(new CMissile(
+        controller,
+        canonPositionX(),
+        canonPositionY(),
+        direction));
   }
 
   public void moveMissiles(float iDeltaT)
@@ -102,6 +106,12 @@ public class MTank
 
   public void checkMissilesCollision()
   {
+    if (controller.getParentGameWindow().isAtLeastOneTankDeafeated())
+    {
+      controller.getMissiles().clear();
+      return;
+    }
+
     Iterator<CMissile> iterator = controller.getMissiles().iterator();
     while (iterator.hasNext())
     {
@@ -376,5 +386,14 @@ public class MTank
   public void setShooting(boolean iShooting)
   {
     shooting = iShooting;
+  }
+
+  public boolean isDefeated()
+  {
+    return defeated;
+  }
+  public void setDefeated(boolean iDefeated)
+  {
+    defeated = iDefeated;
   }
 }
