@@ -3,10 +3,10 @@ package model;
 import java.util.LinkedHashSet;
 
 import controller.CBoardElement;
+import controller.CGameBoard;
 import controller.CMissile;
 import controller.CTank;
 import controller.EDirection;
-import view.VGameBoard;
 
 
 
@@ -57,7 +57,7 @@ public class MMissile
 
     int boardSize = parentTank.getParentGameWindow().getChildBoard().getSize();
 
-    if (VGameBoard.indicesOutsideWindow((int)posX, (int)posY, boardSize))
+    if (CGameBoard.indicesOutsideWindow((int)posX, (int)posY, boardSize))
       return true;
 
     CBoardElement[][] boardElements = parentTank.getParentGameWindow().getChildBoard().getElements();

@@ -45,6 +45,16 @@ public class CHitPoints
     parentTank = iParentTank;
   }
 
+  public MHitPoints getModel()
+  {
+    return model;
+  }
+  public void setModel(MHitPoints iModel)
+  {
+    model = iModel;
+    model.setController(this);
+  }
+
   public int getBarHeight()
   {
     return model.getBarHeight();

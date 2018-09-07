@@ -88,33 +88,33 @@ public class VTank
     }
   }
   private boolean canonOnPosition(
-      int xIndex,
-      int yIndex,
-      int tankPosX,
-      int tankPosY)
+      int iXIndex,
+      int iYIndex,
+      int iTankPosX,
+      int iTankPosY)
   {
     int halfTankSize = controller.getSize() / 2;
 
     switch (controller.getDirection())
     {
     case DOWN:
-      if (xIndex == tankPosX + halfTankSize &&
-          yIndex >= tankPosY + halfTankSize)
+      if (iXIndex == iTankPosX + halfTankSize &&
+          iYIndex >= iTankPosY + halfTankSize)
         return true;
       break;
     case LEFT:
-      if (xIndex <= tankPosX + halfTankSize &&
-          yIndex == tankPosY + halfTankSize)
+      if (iXIndex <= iTankPosX + halfTankSize &&
+          iYIndex == iTankPosY + halfTankSize)
         return true;
       break;
     case RIGHT:
-      if (xIndex >= tankPosX + halfTankSize &&
-          yIndex == tankPosY + halfTankSize)
+      if (iXIndex >= iTankPosX + halfTankSize &&
+          iYIndex == iTankPosY + halfTankSize)
         return true;
       break;
     case UP:
-      if (xIndex == tankPosX + halfTankSize &&
-          yIndex <= tankPosY + halfTankSize)
+      if (iXIndex == iTankPosX + halfTankSize &&
+          iYIndex <= iTankPosY + halfTankSize)
         return true;
       break;
     }

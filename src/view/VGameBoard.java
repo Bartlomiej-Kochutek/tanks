@@ -152,7 +152,7 @@ public class VGameBoard
             currentWindowPartY <= iAmountOfWindowElementsY; currentWindowPartY++)
       {
         yIndex++;
-        if (indicesOutsideWindow(xIndex, yIndex, iBoardSize))
+        if (CGameBoard.indicesOutsideWindow(xIndex, yIndex, iBoardSize))
           iGraphicContext.setBackground(frameColor);
         else
         {
@@ -198,7 +198,7 @@ public class VGameBoard
             currentWindowPartY <= iAmountOfWindowElementsY; currentWindowPartY++)
       {
         yIndex++;
-        if (indicesOutsideWindow(xIndex, yIndex, iBoardSize))
+        if (CGameBoard.indicesOutsideWindow(xIndex, yIndex, iBoardSize))
           continue;
 
         if (boardElements[xIndex][yIndex].isTank())
@@ -218,14 +218,6 @@ public class VGameBoard
       }
       xIndex++;
     }
-  }
-  public static boolean indicesOutsideWindow(
-      int xIndex,
-      int yIndex,
-      int iBoardSize)
-  {
-    return (xIndex < 0 || xIndex >= iBoardSize ||
-            yIndex < 0 || yIndex >= iBoardSize);
   }
   private void redrawMissiles(
       GC iGraphicContext,
@@ -251,7 +243,7 @@ public class VGameBoard
             currentWindowPartY <= iAmountOfWindowElementsY; currentWindowPartY++)
       {
         yIndex++;
-        if (indicesOutsideWindow(xIndex, yIndex, iBoardSize))
+        if (CGameBoard.indicesOutsideWindow(xIndex, yIndex, iBoardSize))
           continue;
 
         if (boardElements[xIndex][yIndex].isMissile())

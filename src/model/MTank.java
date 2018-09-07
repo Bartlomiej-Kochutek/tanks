@@ -3,10 +3,10 @@ package model;
 import java.util.Iterator;
 
 import controller.CBoardElement;
+import controller.CGameBoard;
 import controller.CMissile;
 import controller.CTank;
 import controller.EDirection;
-import view.VGameBoard;
 
 
 
@@ -190,7 +190,7 @@ public class MTank
       int xIndex = (int)posX + xDisplacement;
       int yIndex = (int)posY + iYDisplacement;
 
-      if (VGameBoard.indicesOutsideWindow(xIndex, yIndex, boardElements.length))
+      if (CGameBoard.indicesOutsideWindow(xIndex, yIndex, boardElements.length))
         continue;
 
       if (boardElements[xIndex][yIndex].isBaseWall())
@@ -207,7 +207,7 @@ public class MTank
       int xIndex = (int)posX + iXDisplacement;
       int yIndex = (int)posY + yDisplacement;
 
-      if (VGameBoard.indicesOutsideWindow(xIndex, yIndex, boardElements.length))
+      if (CGameBoard.indicesOutsideWindow(xIndex, yIndex, boardElements.length))
         continue;
 
       if (boardElements[xIndex][yIndex].isBaseWall())
@@ -286,8 +286,8 @@ public class MTank
   public void setPosX(int iPosX)
   {
     posX = iPosX;
-    if (posX < 0)
-      posX = DEFAULT_POS_X;
+
+    correctPosX();
   }
 
 
@@ -298,8 +298,8 @@ public class MTank
   public void setPosY(int iPosY)
   {
     posY = iPosY;
-    if (posY < 0)
-      posY = DEFAULT_POS_Y;
+
+    correctPosY();
   }
 
   public int getSize()

@@ -65,6 +65,15 @@ public class CGameBoard
         iPartOfScreen);
   }
 
+  public static boolean indicesOutsideWindow(
+      int iXIndex,
+      int iYIndex,
+      int iBoardSize)
+  {
+    return (iXIndex < 0 || iXIndex >= iBoardSize ||
+            iYIndex < 0 || iYIndex >= iBoardSize);
+  }
+
 
 
 

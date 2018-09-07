@@ -2,6 +2,7 @@ package view;
 
 import controller.CBase;
 import controller.CBoardElement;
+import controller.CGameBoard;
 
 
 
@@ -32,11 +33,11 @@ public class VBase
       }
 
       int yIndex = thisPosY;
-      if (!VGameBoard.indicesOutsideWindow(xIndex, yIndex, oElements.length))
+      if (!CGameBoard.indicesOutsideWindow(xIndex, yIndex, oElements.length))
         oElements[xIndex][yIndex].setBaseWall(true);
 
       yIndex = thisPosY + thisSize;
-      if (!VGameBoard.indicesOutsideWindow(xIndex, yIndex, oElements.length))
+      if (!CGameBoard.indicesOutsideWindow(xIndex, yIndex, oElements.length))
         oElements[xIndex][yIndex].setBaseWall(true);
     }
     for (int yIndex = thisPosY; yIndex <= thisPosY + thisSize; yIndex++)
@@ -47,11 +48,11 @@ public class VBase
       }
 
       int xIndex = thisPosX;
-      if (!VGameBoard.indicesOutsideWindow(xIndex, yIndex, oElements.length))
+      if (!CGameBoard.indicesOutsideWindow(xIndex, yIndex, oElements.length))
         oElements[xIndex][yIndex].setBaseWall(true);
 
       xIndex = controller.getPosX() + thisSize;
-      if (!VGameBoard.indicesOutsideWindow(xIndex, yIndex, oElements.length))
+      if (!CGameBoard.indicesOutsideWindow(xIndex, yIndex, oElements.length))
         oElements[xIndex][yIndex].setBaseWall(true);
     }
   }
